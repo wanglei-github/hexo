@@ -1,5 +1,5 @@
 ---
-title: 【浅谈】【JAVA多线程】synchronized 【一】
+title: 【浅谈】【JAVA多线程】【一】synchronized
 date: 2018-04-15 12:01:13
 tags: [ 多线程, 锁,java基础,网易面试题]
 ---
