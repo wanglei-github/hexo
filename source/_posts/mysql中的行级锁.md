@@ -86,7 +86,8 @@ insert child values(null,"Lily",23);
 通过上面我们能理解到next-key实际是为了解决***幻读***问题，
 那么实际依然是阻止了其他事务的***insert***操作。
 
-***大家注意，以上例子，都是在普通索引上的操作，如果你操作的列是有unique索引或者是主键索引，那么都不会有gap locks的特性，以及next-key locks***
+***大家注意，以上例子，都是在普通索引上的操作，如果你操作的列是有unique索引或者是主键索引并且锁定的数据是表有的，那么都不会有gap locks的特性，及退化为行锁***
+***若执行的条件作用在唯一索引或者主键索引时，该条件实际不存在表里，那么依然会锁住该条件的左右两个区间***
 
 >Gap locking is not needed for statements that lock rows using a unique index to search for a unique row. (This does not include the case that the search condition includes only some columns of a multiple-column unique index; in that case, gap locking does occur.) 
 
